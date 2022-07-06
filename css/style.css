@@ -248,7 +248,7 @@ button:hover {
     padding: 20px 35px;
     background: #242629;
     border-radius: 20px;
-    margin: 15px;
+    margin: 10px 70px auto;
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -496,8 +496,9 @@ h5{
      }
 
      .card {
-        margin: 10px 70px auto;
+        margin: 10px 70px 10px 15px;
         width: 345px;
+        
      }
 
     
