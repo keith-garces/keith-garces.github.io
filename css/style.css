@@ -506,9 +506,8 @@ h5{
    }
 
    div.card {
-      /* margin: 10px 70px 10px 15px; */
-      /* margin: 0 auto; */
-/* REMOVED MARGIN */
+      margin: 10px 70px 10px 15px;
+
       width: 345px;
       padding-top: 10px;
       
