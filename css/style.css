@@ -130,6 +130,7 @@ h4 {
     border: 2px solid blueviolet;
     outline: none;
     border-radius: 30px;
+    line-height: 10px;
 }
 .newsletter form input:last-child{
     position: absolute;
