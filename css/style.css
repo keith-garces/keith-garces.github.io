@@ -499,19 +499,15 @@ h5{
       /* min-height: 400px; */
    }
 
-   .card {
-      margin: 10px 70px 10px 15px;
-      width: 345px;
-      
-   }
-
    div.card {
-      margin: 10px 70px 10px 15px;
-
+      margin: 10px auto;
       width: 345px;
       padding-top: 10px;
+
       
    }
+
+  
   
 
    .contact-me p{ 
