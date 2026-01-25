@@ -295,6 +295,35 @@
           )
         ),
         
+        // AI Assistant Chat Simulation
+        React.createElement('div', { className: 'w-full bg-slate-900 py-20 px-6 flex justify-center' },
+          React.createElement('div', { className: 'max-w-2xl w-full' },
+            React.createElement('div', { className: 'bg-slate-900 rounded-3xl p-6 text-white flex flex-col h-[500px] shadow-2xl relative overflow-hidden' },
+              React.createElement('div', { className: 'absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500' }),
+              React.createElement('div', { className: 'flex items-center space-x-3 mb-6' },
+                React.createElement('div', { className: 'w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center', dangerouslySetInnerHTML: { __html: svgIcon('sparkles') } }),
+                React.createElement('div', null,
+                  React.createElement('p', { className: 'font-bold text-sm' }, 'Keith\'s AI Assistant'),
+                  React.createElement('p', { className: 'text-[10px] text-slate-400' }, 'Available to help 24/7')
+                )
+              ),
+              React.createElement('div', { className: 'flex-1 overflow-y-auto space-y-4 mb-4 text-sm scrollbar-hide' },
+                React.createElement('div', { className: 'bg-slate-800 p-3 rounded-2xl rounded-tl-none inline-block max-w-[85%]' }, 'Hi! I\'m Keith\'s automated assistant. Ask me anything about how Keith handles Shopify orders or customer inquiries!'),
+                supportChat.map((msg, idx) =>
+                  React.createElement('div', { key: idx, className: `flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}` },
+                    React.createElement('div', { className: `p-3 rounded-2xl max-w-[85%] ${msg.role === 'user' ? 'bg-blue-600 text-white rounded-tr-none' : 'bg-slate-800 text-slate-200 rounded-tl-none'}` }, msg.text)
+                  )
+                )
+              ),
+              React.createElement('form', { onSubmit: handleSupportChat, className: 'relative' },
+                React.createElement('input', { type: 'text', value: userMessage, onChange: (e) => setUserMessage(e.target.value), placeholder: 'Type a support question...', className: 'w-full bg-slate-800 border-none rounded-xl py-3 px-4 pr-12 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition' }),
+                React.createElement('button', { type: 'submit', className: 'absolute right-2 top-2 p-1.5 bg-blue-600 rounded-lg hover:bg-blue-500 transition', dangerouslySetInnerHTML: { __html: svgIcon('send') } })
+              ),
+              React.createElement('p', { className: 'text-[10px] text-slate-500 text-center mt-4 uppercase tracking-widest font-bold' }, '✨ Powered by Gemini API')
+            )
+          )
+        ),
+
         // Experience & Results Section
         React.createElement('section', { id: 'experience', className: 'w-full py-20 bg-blue-50/40 px-6' },
           React.createElement('div', { className: 'max-w-6xl mx-auto' },
