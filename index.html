@@ -48,9 +48,10 @@
       const [isAiLoading, setIsAiLoading] = useState(false);
       const [supportChat, setSupportChat] = useState([]);
       const [userMessage, setUserMessage] = useState('');
+      const [selectedPortfolio, setSelectedPortfolio] = useState(null);
 
       const portfolioItems = [
-        { id: 1, category: 'Instagram', title: 'Product Launch Graphics', description: 'Social media strategy for an e-commerce brand launch.', color: 'bg-blue-50', image: 'product launch graphics/1.png' },
+        { id: 1, category: 'Instagram', title: 'Product Launch Graphics', description: 'Social media strategy for an e-commerce brand launch.', color: 'bg-blue-50', image: 'product launch graphics/1.png', gallery: ['product launch graphics/2.png', 'product launch graphics/3.png', 'product launch graphics/4.png'] },
         { id: 2, category: 'Facebook', title: 'Community Engagement', description: 'Curated posts for a tech support community group.', color: 'bg-blue-100' },
         { id: 3, category: 'Ads', title: 'Shopify Sales Campaign', description: 'High-converting ad copy and creative designs.', color: 'bg-blue-50' },
         { id: 4, category: 'Instagram', title: 'Lifestyle Brand Feed', description: 'Grid planning and aesthetic curation for fashion VA.', color: 'bg-blue-100' },
@@ -410,7 +411,7 @@
             ),
             React.createElement('div', { className: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8' },
               filteredItems.map((item) =>
-                React.createElement('div', { key: item.id, className: 'group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-slate-100' },
+                React.createElement('div', { key: item.id, onClick: () => item.gallery ? setSelectedPortfolio(item) : null, className: `group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-slate-100 ${item.gallery ? 'cursor-pointer' : ''}` },
                   React.createElement('div', { className: item.image ? 'h-40 overflow-hidden bg-slate-100' : `h-40 ${item.color} flex items-center justify-center p-8 transition-transform group-hover:scale-105` },
                     item.image ? 
                       React.createElement('img', { src: item.image, alt: item.title, className: 'w-full h-full object-cover transition-transform group-hover:scale-105' })
@@ -525,6 +526,38 @@
             ),
             React.createElement('p', { className: 'text-white/90 font-medium' }, 'Keith Garces'),
             React.createElement('a', { href: 'mailto:imkeithgarces@gmail.com', className: 'text-white/70 hover:text-white transition-colors text-sm' }, 'imkeithgarces@gmail.com')
+          )
+        ),
+
+        // Portfolio Modal
+        selectedPortfolio && React.createElement('div', { 
+          className: 'fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4',
+          onClick: () => setSelectedPortfolio(null)
+        },
+          React.createElement('div', { 
+            className: 'bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto',
+            onClick: (e) => e.stopPropagation()
+          },
+            React.createElement('div', { className: 'p-6' },
+              React.createElement('div', { className: 'flex justify-between items-center mb-6' },
+                React.createElement('h2', { className: 'text-2xl font-bold' }, selectedPortfolio.title),
+                React.createElement('button', { 
+                  onClick: () => setSelectedPortfolio(null),
+                  className: 'text-slate-400 hover:text-slate-900 text-3xl font-light'
+                }, '×')
+              ),
+              React.createElement('p', { className: 'text-slate-600 mb-6' }, selectedPortfolio.description),
+              React.createElement('div', { className: 'grid grid-cols-1 gap-4' },
+                selectedPortfolio.gallery && selectedPortfolio.gallery.map((img, idx) =>
+                  React.createElement('img', { 
+                    key: idx, 
+                    src: img, 
+                    alt: `${selectedPortfolio.title} ${idx + 1}`,
+                    className: 'w-full rounded-lg shadow-md'
+                  })
+                )
+              )
+            )
           )
         )
       );
