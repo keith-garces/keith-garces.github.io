@@ -85,46 +85,60 @@ const App = () => {
   const generateAssistantResponse = (userMessage) => {
     const message = userMessage.toLowerCase();
     
+    // Shopify Orders & E-commerce
+    if (message.includes('shopify order') || message.includes('order management') || message.includes('how do you handle orders')) {
+      return "Keith expertly manages Shopify orders end-to-end: Creates orders, processes cancellations & swaps seamlessly, handles refunds professionally, tracks shipments, and coordinates with suppliers. He's handled 40+ daily inquiries for e-commerce brands. Keith ensures zero customer frustration through quick resolution and clear communication.";
+    }
+    if (message.includes('customer inquir') || message.includes('handle inquiry') || message.includes('customer question')) {
+      return "Keith manages customer inquiries with excellence: He handles 40+ daily emails & chats via Gorgias/Zendesk, resolves issues fast, manages expectations professionally, and maintains customer relationships. With 5+ years experience and 3,000+ customers supported, he turns inquiries into loyalty through empathy and efficiency.";
+    }
+    if (message.includes('refund') || message.includes('return') || message.includes('cancellation')) {
+      return "Keith handles refunds and cancellations smoothly: He processes refund requests promptly, manages return logistics, handles cancellations professionally, and resolves disputes fairly. His psychology background helps him handle frustrated customers with empathy, turning negative situations into positive brand experiences.";
+    }
+    if (message.includes('inventory') || message.includes('stock') || message.includes('tracking')) {
+      return "Keith manages inventory tracking and shipment coordination efficiently. He monitors stock levels, updates product listings, coordinates with suppliers, tracks shipments in real-time, and communicates proactively with customers. Zero missed shipments, always on top of logistics!";
+    }
+    
     // Services & Expertise
     if (message.includes('customer support') || message.includes('support')) {
-      return "Keith specializes in high-volume email and chat support, handling 40+ daily inquiries with professionalism. He uses tools like Gorgias and Zendesk for seamless customer interactions.";
+      return "Keith specializes in high-volume email and chat support, handling 40+ daily inquiries with professionalism. He uses tools like Gorgias and Zendesk for seamless customer interactions. With 5+ years experience and 3,000+ customers supported, he's your go-to for reliable customer care.";
     }
-    if (message.includes('shopify') || message.includes('order') || message.includes('refund') || message.includes('swap')) {
-      return "Keith has extensive e-commerce experience! He handles Shopify order management, cancellations, swaps, refunds, and inventory tracking. Perfect for automotive and fashion brands.";
+    if (message.includes('shopify') && !message.includes('order')) {
+      return "Keith has extensive Shopify expertise: order management, product listing updates, inventory tracking, store optimization, and customer support. He's worked with automotive and fashion brands, managing high-volume operations smoothly. He's fluent in Shopify workflows!";
     }
     if (message.includes('gorgias') || message.includes('zendesk') || message.includes('hubspot')) {
-      return "Keith is proficient with all major support platforms - Gorgias, Zendesk, HubSpot, and more. He can streamline your customer communication workflows immediately.";
+      return "Keith is proficient with all major support platforms - Gorgias, Zendesk, HubSpot, and more. He can streamline your customer communication workflows immediately. He sets up automations, manages ticket flows, and ensures zero inquiries fall through the cracks.";
     }
     if (message.includes('data') || message.includes('admin') || message.includes('sheet') || message.includes('spreadsheet')) {
-      return "Keith handles data entry, CRM updates, Google Sheets management, and documentation. He's organized, detail-oriented, and follows processes precisely.";
+      return "Keith handles data entry, CRM updates, Google Sheets management, and documentation. He's organized, detail-oriented, and follows processes precisely. Perfect for maintaining customer databases, tracking metrics, and keeping operations running smoothly.";
     }
     if (message.includes('technical') || message.includes('integration') || message.includes('automation')) {
-      return "Keith has technical support experience including troubleshooting, system setup, API integration, and Zapier automation. He bridges business and tech seamlessly.";
+      return "Keith has technical support experience including troubleshooting, system setup, API integration, and Zapier automation. He bridges business and tech seamlessly, setting up workflows that save hours every week.";
     }
     
     // Experience & Background
     if (message.includes('experience') || message.includes('background') || message.includes('years')) {
-      return "Keith has 5+ years in customer support across telco, retail, insurance, and automotive industries. He's supported 3,000+ customers and managed high-volume environments.";
+      return "Keith has 5+ years in customer support across telco, retail, insurance, and automotive industries. He's supported 3,000+ customers and managed high-volume environments handling 25+ phone inquiries and 40+ emails daily. His background spans multiple industries = adaptable excellence.";
     }
     if (message.includes('why hire') || message.includes('qualities') || message.includes('skilled')) {
-      return "Keith brings: Strong communication, detail-oriented mindset, calm under pressure, independent work ethic, and a psychology background supporting empathy. He's reliable and efficient.";
+      return "Keith brings: Strong communication, detail-oriented mindset, calm under pressure, independent work ethic, and a psychology background supporting empathy. He's reliable and efficient. Clients say he's a game-changer for their operations.";
     }
     
     // Tools & Platforms
     if (message.includes('tools') || message.includes('software') || message.includes('platform')) {
-      return "Keith masters: Shopify, Gorgias, Zendesk, HubSpot, Google Workspace, Notion, Canva, Zapier, MS Office, and ChatGPT. He learns new tools quickly.";
+      return "Keith masters: Shopify, Gorgias, Zendesk, HubSpot, Google Workspace, Notion, Canva, Zapier, MS Office, and ChatGPT. He learns new tools quickly and can adapt to your tech stack immediately.";
     }
     
     // Hiring & Contact
     if (message.includes('hire') || message.includes('work with') || message.includes('available')) {
-      return "Ready to work together? Check out Keith's portfolio or email imkeithgarces@gmail.com. He's available for full-time, part-time, or project-based work.";
+      return "Ready to work together? Email Keith at imkeithgarces@gmail.com. He's available for full-time, part-time, or project-based work. Response time: lightning fast! You can also check his LinkedIn at linkedin.com/in/imkeithgarces.";
     }
     if (message.includes('email') || message.includes('contact') || message.includes('reach')) {
-      return "You can reach Keith at imkeithgarces@gmail.com or connect via LinkedIn at linkedin.com/in/imkeithgarces. He responds quickly!";
+      return "You can reach Keith at imkeithgarces@gmail.com or connect via LinkedIn at linkedin.com/in/imkeithgarces. WhatsApp also available at +63 945-874-2271. He responds quickly!";
     }
     
     // Default response
-    return "Keith is a skilled Virtual Assistant specializing in e-commerce support and customer service. Ask about his experience with Shopify, customer support tools, data management, or available services!";
+    return "Keith is a skilled Virtual Assistant specializing in e-commerce support and customer service. Ask about Shopify order handling, customer inquiry management, available tools, or how to hire him!";
   };
 
   const handleSupportChat = async (e) => {
