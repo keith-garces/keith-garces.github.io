@@ -247,64 +247,54 @@
         ),
 
         // Services Section
-        React.createElement('section', { id: 'services', className: 'bg-white py-20 px-6' },
-          React.createElement('div', { className: 'max-w-7xl mx-auto' },
-            React.createElement('div', { className: 'grid grid-cols-1 lg:grid-cols-4 gap-12' },
-              React.createElement('div', { className: 'lg:col-span-3' },
-                React.createElement('div', { className: 'mb-12 text-center lg:text-left' },
-                  React.createElement('h2', { className: 'text-3xl font-bold mb-4' }, 'Services'),
-                  React.createElement('p', { className: 'text-slate-500' }, 'Professional virtual assistance tailored to e-commerce and business operations.')
-                ),
-                React.createElement('div', { className: 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6' },
-                  [
-                    { title: 'Customer Support', icon: 'userPlus', list: ['Email & chat support (Gorgias, Zendesk)', 'Inquiry resolution and troubleshooting', 'Customer relationship management', 'Handling high-volume inquiries professionally'] },
-                    { title: 'E-commerce VA Support', icon: 'shoppingCart', list: ['Order creation, cancellations, swaps, refunds', 'Tracking shipments & supplier coordination', 'Product listing updates', 'Inventory tracking'] },
-                    { title: 'Admin & Data Support', icon: 'fileText', list: ['Data entry & research', 'CRM updates (HubSpot)', 'Google Sheets & documentation', 'Process support and task coordination'] },
-                    { title: 'Technical Support', icon: 'settings', list: ['Desktop or network troubleshooting & setup', 'Integration assistance & automation', 'System monitoring & optimization', 'API integration and troubleshooting'] }
-                  ].map((service, i) =>
-                    React.createElement('div', { key: i, className: 'p-6 bg-[#f8fbff] rounded-2xl border border-slate-100 hover:border-blue-200 transition-all shadow-sm' },
-                      React.createElement('div', { className: 'w-12 h-12 bg-[#007bff] text-white rounded-xl flex items-center justify-center mb-6', dangerouslySetInnerHTML: { __html: svgIcon(service.icon) } }),
-                      React.createElement('h3', { className: 'font-bold text-lg mb-4 text-slate-800 leading-tight h-12 flex items-center' }, service.title),
-                      React.createElement('ul', { className: 'space-y-3' },
-                        service.list.map((item, j) =>
-                          React.createElement('li', { key: j, className: 'text-[14px] text-slate-600 flex items-start leading-relaxed' },
-                            React.createElement('span', { className: 'w-3.5 h-3.5 text-blue-500 mr-2 mt-0.5 flex-shrink-0', dangerouslySetInnerHTML: { __html: svgIcon('check') } }),
-                            item
-                          )
-                        )
+        React.createElement('section', { id: 'services', className: 'w-full py-20 bg-white' },
+          React.createElement('div', { className: 'max-w-6xl mx-auto px-6' },
+            React.createElement('div', { className: 'text-center mb-14' },
+              React.createElement('h2', { className: 'text-2xl md:text-3xl font-bold text-slate-900 mb-4' }, 'Services'),
+              React.createElement('p', { className: 'text-slate-600 max-w-xl mx-auto' }, 'Professional virtual assistance tailored to e-commerce and business operations')
+            ),
+            React.createElement('div', { className: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8' },
+              [
+                { 
+                  title: 'Customer Support', 
+                  icon: '<svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" /></svg>',
+                  list: ['Email & chat support (Gorgias, Zendesk)', 'Inquiry resolution and troubleshooting', 'Customer relationship management', 'Handling high-volume inquiries professionally'] 
+                },
+                { 
+                  title: 'E-commerce VA Support', 
+                  icon: '<svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>',
+                  list: ['Order creation, cancellations, swaps, refunds', 'Tracking shipments & supplier coordination', 'Product listing updates', 'Inventory tracking'] 
+                },
+                { 
+                  title: 'Admin & Data Support', 
+                  icon: '<svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>',
+                  list: ['Data entry & research', 'CRM updates (HubSpot)', 'Google Sheets & documentation', 'Process support and task coordination'] 
+                },
+                { 
+                  title: 'Technical Support', 
+                  icon: '<svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>',
+                  list: ['Desktop or network troubleshooting & setup', 'Integration assistance & automation', 'System monitoring & optimization', 'API integration and troubleshooting'] 
+                }
+              ].map((service, i) =>
+                React.createElement('div', { key: i, className: 'bg-blue-50/30 border border-blue-100 rounded-2xl p-8 hover:border-blue-300 transition-colors' },
+                  React.createElement('div', { className: 'w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-6', dangerouslySetInnerHTML: { __html: service.icon } }),
+                  React.createElement('h3', { className: 'text-xl font-semibold text-slate-900 mb-4' }, service.title),
+                  React.createElement('ul', { className: 'space-y-3 text-sm text-slate-700' },
+                    service.list.map((item, j) =>
+                      React.createElement('li', { key: j, className: 'flex items-start space-x-2' },
+                        React.createElement('svg', { className: 'w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0', fill: 'currentColor', viewBox: '0 0 20 20' },
+                          React.createElement('path', { fillRule: 'evenodd', d: 'M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z', clipRule: 'evenodd' })
+                        ),
+                        React.createElement('span', null, item)
                       )
                     )
                   )
                 )
-              ),
-              // AI Assistant Chat Simulation - Moved below services
-              React.createElement('div', { className: 'bg-slate-900 rounded-3xl p-6 text-white flex flex-col h-[500px] shadow-2xl relative overflow-hidden mt-12 col-span-full' },
-                React.createElement('div', { className: 'absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500' }),
-                React.createElement('div', { className: 'flex items-center space-x-3 mb-6' },
-                  React.createElement('div', { className: 'w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center', dangerouslySetInnerHTML: { __html: svgIcon('sparkles') } }),
-                  React.createElement('div', null,
-                    React.createElement('p', { className: 'font-bold text-sm' }, 'Keith\'s AI Assistant'),
-                    React.createElement('p', { className: 'text-[10px] text-slate-400' }, 'Available to help 24/7')
-                  )
-                ),
-                React.createElement('div', { className: 'flex-1 overflow-y-auto space-y-4 mb-4 text-sm scrollbar-hide' },
-                  React.createElement('div', { className: 'bg-slate-800 p-3 rounded-2xl rounded-tl-none inline-block max-w-[85%]' }, 'Hi! I\'m Keith\'s automated assistant. Ask me anything about how Keith handles Shopify orders or customer inquiries!'),
-                  supportChat.map((msg, idx) =>
-                    React.createElement('div', { key: idx, className: `flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}` },
-                      React.createElement('div', { className: `p-3 rounded-2xl max-w-[85%] ${msg.role === 'user' ? 'bg-blue-600 text-white rounded-tr-none' : 'bg-slate-800 text-slate-200 rounded-tl-none'}` }, msg.text)
-                    )
-                  )
-                ),
-                React.createElement('form', { onSubmit: handleSupportChat, className: 'relative' },
-                  React.createElement('input', { type: 'text', value: userMessage, onChange: (e) => setUserMessage(e.target.value), placeholder: 'Type a support question...', className: 'w-full bg-slate-800 border-none rounded-xl py-3 px-4 pr-12 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition' }),
-                  React.createElement('button', { type: 'submit', className: 'absolute right-2 top-2 p-1.5 bg-blue-600 rounded-lg hover:bg-blue-500 transition', dangerouslySetInnerHTML: { __html: svgIcon('send') } })
-                ),
-                React.createElement('p', { className: 'text-[10px] text-slate-500 text-center mt-4 uppercase tracking-widest font-bold' }, '✨ Powered by Gemini API')
               )
             )
           )
         ),
-
+        
         // Experience & Results Section
         React.createElement('section', { id: 'experience', className: 'w-full py-20 bg-blue-50/40 px-6' },
           React.createElement('div', { className: 'max-w-6xl mx-auto' },
