@@ -52,7 +52,7 @@ const App = () => {
 
   const callGemini = async (prompt, systemInstruction = "") => {
     let retries = 0;
-    const maxRetries = 5;
+    const maxRetries = 1;
     while (retries <= maxRetries) {
       try {
         const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
@@ -67,7 +67,7 @@ const App = () => {
         return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
       } catch (err) {
         if (retries === maxRetries) throw err;
-        const delay = Math.pow(2, retries) * 1000;
+        const delay = 3000 + (Math.pow(2, retries) * 1000);
         await new Promise(res => setTimeout(res, delay));
         retries++;
       }
