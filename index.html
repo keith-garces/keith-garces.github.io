@@ -400,9 +400,9 @@
               ),
               aiResult && React.createElement('div', { className: 'mt-6 p-4 bg-blue-50 border border-blue-100 rounded-xl text-sm text-slate-700 whitespace-pre-wrap leading-relaxed' }, aiResult)
             ),
-            React.createElement('div', { className: 'flex items-center justify-center gap-4 mb-10' },
+            React.createElement('div', { className: 'flex items-center gap-4 mb-10' },
               React.createElement('button', { onClick: () => { const container = document.getElementById('filter-scroll'); container.scrollBy({ left: -200, behavior: 'smooth' }); }, className: 'p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition flex-shrink-0 md:hidden' }, '←'),
-              React.createElement('div', { id: 'filter-scroll', className: 'flex justify-center space-x-4 overflow-x-auto pb-2 flex-1 scroll-smooth' },
+              React.createElement('div', { id: 'filter-scroll', className: 'flex justify-start md:justify-center space-x-4 overflow-x-auto pb-2 flex-1 scroll-smooth' },
                 ['All', 'Instagram', 'Facebook', 'Ads', 'LinkedIn'].map((cat) =>
                   React.createElement('button', { key: cat, onClick: () => setFilter(cat), className: `px-6 py-2 rounded-full text-sm font-semibold transition-all flex-shrink-0 ${filter === cat ? 'bg-blue-600 text-white' : 'bg-white text-slate-600 border border-slate-200'}` }, cat)
                 )
