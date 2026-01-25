@@ -29,7 +29,7 @@ import {
   BarChart3
 } from 'lucide-react';
 
-const apiKey = ""; // Provided by environment
+const apiKey = ""; // Provided by environment at runtime
 
 const App = () => {
   const [filter, setFilter] = useState('All');
@@ -50,6 +50,7 @@ const App = () => {
 
   const filteredItems = filter === 'All' ? portfolioItems : portfolioItems.filter(item => item.category === filter);
 
+  // Helper for API calls with exponential backoff
   const callGemini = async (prompt, systemInstruction = "") => {
     let retries = 0;
     const maxRetries = 5;
@@ -113,7 +114,6 @@ const App = () => {
       <nav className="flex items-center justify-between px-6 py-4 bg-white border-b sticky top-0 z-50">
         <div className="text-blue-600 font-bold text-xl">Keith Garces</div>
         
-        {/* Updated Nav Links */}
         <div className="hidden md:flex space-x-8 text-sm font-medium">
           <a href="#services" className="text-slate-600 hover:text-blue-600 transition-colors">Services</a> 
           <a href="#experience" className="text-slate-600 hover:text-blue-600 transition-colors">Experience</a> 
@@ -130,7 +130,7 @@ const App = () => {
       {/* Hero Section */}
       <header className="w-full bg-gradient-to-b from-blue-50 to-white py-20 md:py-28 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 id="headline" className="text-3xl md:text-5xl font-bold text-slate-800 leading-tight mb-6" style={{ fontSize: '40px' }}>
+          <h1 className="text-3xl md:text-5xl font-bold text-slate-800 leading-tight mb-6">
             Reliable E-commerce & Customer Support Virtual Assistant
           </h1>
           <p className="text-slate-500 text-lg mb-10 max-w-2xl mx-auto">
@@ -247,7 +247,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Experience & Results Section */}
+      {/* Experience Section */}
       <section id="experience" className="w-full py-20 bg-blue-50/40 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -256,41 +256,20 @@ const App = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-center md:text-left">
+            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-center md:text-left hover:shadow-md transition">
               <div className="text-blue-600 text-3xl font-bold mb-2">5+</div>
               <p className="font-bold text-slate-800 text-sm mb-2">Years of Experience</p>
               <p className="text-slate-500 text-sm leading-relaxed">In customer support across BPO industries</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-center md:text-left">
+            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-center md:text-left hover:shadow-md transition">
               <div className="text-blue-600 text-3xl font-bold mb-2">3,000+</div>
               <p className="font-bold text-slate-800 text-sm mb-2">Customers Supported</p>
               <p className="text-slate-500 text-sm leading-relaxed">Across telco, retail, insurance, and automotive industries</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-center md:text-left">
+            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-center md:text-left hover:shadow-md transition">
               <div className="text-blue-600 text-3xl font-bold mb-2">25+</div>
-              <p className="font-bold text-slate-800 text-sm mb-2">Daily Phone & Email Inquiries</p>
-              <p className="text-slate-500 text-sm leading-relaxed">Handled professionally in telco customer support</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            <div className="md:col-span-2 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-center md:text-left">
-              <div className="text-blue-600 text-3xl font-bold mb-2">40+</div>
-              <p className="font-bold text-slate-800 text-sm mb-2">Daily Email & Chat Inquiries</p>
-              <p className="text-slate-500 text-sm leading-relaxed">Managed for e-commerce automotive brand</p>
-            </div>
-            <div className="md:col-span-3 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex items-start">
-              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0 mr-6">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
-              </div>
-              <div>
-                <p className="font-bold text-slate-800 text-sm mb-2">Comprehensive Issue Resolution</p>
-                <p className="text-slate-500 text-sm leading-relaxed">
-                  Experienced in resolving order issues, refunds, escalations, and logistics coordination with professionalism and efficiency.
-                </p>
-              </div>
+              <p className="font-bold text-slate-800 text-sm mb-2">Daily Interactions</p>
+              <p className="text-slate-500 text-sm leading-relaxed">High-volume phone & email handling</p>
             </div>
           </div>
         </div>
@@ -307,7 +286,7 @@ const App = () => {
           <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-16 max-w-3xl mx-auto">
             <div className="flex items-center space-x-3 mb-6">
               <div className="p-2 bg-blue-50 rounded-lg text-blue-600">
-                <span className="sparkle-icon">✨</span>
+                <Sparkles className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold">Social Caption Generator</h3>
             </div>
@@ -329,7 +308,7 @@ const App = () => {
               </button>
             </div>
             {aiResult && (
-              <div className="mt-6 p-4 bg-blue-50 border border-blue-100 rounded-xl text-sm text-slate-700 whitespace-pre-wrap leading-relaxed">
+              <div className="mt-6 p-4 bg-blue-50 border border-blue-100 rounded-xl text-sm text-slate-700 whitespace-pre-wrap leading-relaxed animate-in fade-in slide-in-from-bottom-2">
                 {aiResult}
               </div>
             )}
@@ -340,7 +319,7 @@ const App = () => {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${
+                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all flex-shrink-0 ${
                   filter === cat ? 'bg-blue-600 text-white' : 'bg-white text-slate-600 border border-slate-200'
                 }`}
               >
@@ -352,7 +331,7 @@ const App = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredItems.map((item) => (
               <div key={item.id} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-slate-100">
-                <div className={`h-40 ${item.color} flex items-center justify-center p-8 transition-transform group-hover:scale-105`}>
+                <div className={`h-40 ${item.color} flex items-center justify-center p-8 transition-transform`}>
                    <div className="w-full h-full border-2 border-dashed border-blue-200 rounded-lg flex flex-col items-center justify-center text-blue-300">
                       <Layout className="w-8 h-8 mb-2" />
                       <span className="text-[10px] font-bold uppercase tracking-widest">{item.category}</span>
@@ -376,76 +355,33 @@ const App = () => {
             <p className="text-slate-500 font-medium">Professional qualities that ensure reliable, high-quality support</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div className="bg-[#f8fbff] p-8 rounded-2xl border border-slate-100 shadow-sm flex items-start group hover:border-blue-200 transition-all">
-               <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white mr-6 flex-shrink-0">
-                <MessageSquare className="w-5 h-5" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { icon: <MessageSquare />, title: "Strong Communication", desc: "Expert in customer communication and expectation management" },
+              { icon: <BarChart3 />, title: "KPI-Driven", desc: "Focused on measurable results and quality metrics" },
+              { icon: <Clock />, title: "Calm Under Pressure", desc: "Reliable and efficient in high-volume, fast-paced environments" },
+              { icon: <CheckCircle />, title: "Independent Worker", desc: "Trusted to work autonomously once trained on processes" }
+            ].map((feature, i) => (
+              <div key={i} className="bg-[#f8fbff] p-8 rounded-2xl border border-slate-100 shadow-sm flex items-start group hover:border-blue-200 transition-all">
+                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white mr-6 flex-shrink-0">
+                  {React.cloneElement(feature.icon, { className: "w-5 h-5" })}
+                </div>
+                <div>
+                  <p className="font-extrabold text-[#1a314d] text-[15px] mb-1.5 leading-tight">{feature.title}</p>
+                  <p className="text-[#64748b] text-[12px] leading-relaxed font-normal">{feature.desc}</p>
+                </div>
               </div>
-              <div>
-                <p className="font-extrabold text-[#1a314d] text-[15px] mb-1.5 leading-tight">Strong Communication</p>
-                <p className="text-[#64748b] text-[12px] leading-relaxed font-normal">
-                  Expert in customer communication and expectation management
-                </p>
-              </div>
-            </div>
-            
-            <div className="bg-[#f8fbff] p-8 rounded-2xl border border-slate-100 shadow-sm flex items-start group hover:border-blue-200 transition-all">
-               <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white mr-6 flex-shrink-0">
-                <BarChart3 className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="font-extrabold text-[#1a314d] text-[15px] mb-1.5 leading-tight">Detail-Oriented & KPI-Driven</p>
-                <p className="text-[#64748b] text-[12px] leading-relaxed font-normal">
-                  Focused on measurable results and quality metrics
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-[#f8fbff] p-8 rounded-2xl border border-slate-100 shadow-sm flex items-start group hover:border-blue-200 transition-all">
-               <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white mr-6 flex-shrink-0">
-                <Clock className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="font-extrabold text-[#1a314d] text-[15px] mb-1.5 leading-tight">Calm Under Pressure</p>
-                <p className="text-[#64748b] text-[12px] leading-relaxed font-normal">
-                  Reliable and efficient in high-volume, fast-paced environments
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-[#f8fbff] p-8 rounded-2xl border border-slate-100 shadow-sm flex items-start group hover:border-blue-200 transition-all">
-               <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white mr-6 flex-shrink-0">
-                <CheckCircle className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="font-extrabold text-[#1a314d] text-[15px] mb-1.5 leading-tight">Independent Worker</p>
-                <p className="text-[#64748b] text-[12px] leading-relaxed font-normal">
-                  Trusted to work autonomously once trained on processes
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-[#f8fbff] p-8 rounded-2xl border border-slate-100 shadow-sm flex items-start group hover:border-blue-200 transition-all">
-             <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white mr-6 flex-shrink-0">
-              <Lightbulb className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="font-extrabold text-[#1a314d] text-[15px] mb-1.5 leading-tight">Psychology Background</p>
-              <p className="text-[#64748b] text-[12px] leading-relaxed font-normal">
-                Educational foundation supporting strong communication, empathy, and problem-solving abilities
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Tools Section */}
-      <section id="tools" className="py-20 px-6" style={{ backgroundColor: 'rgb(232 244 255 / 0.4)' }}>
+      <section id="tools" className="py-20 px-6 bg-slate-50/80">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Tools & Platforms</h2>
-            <p className="text-slate-500 font-medium">Proficient with industry-standard tools and platforms.</p>
+            <p className="text-slate-500 font-medium">Proficient with industry-standard platforms.</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
             {[
@@ -453,7 +389,6 @@ const App = () => {
               { name: "Gorgias", icon: <Monitor /> },
               { name: "Zendesk", icon: <Headphones /> },
               { name: "HubSpot", icon: <Users /> },
-              { name: "Google Workspace", icon: <Zap /> },
               { name: "Notion", icon: <FileText /> },
               { name: "Canva", icon: <Layout /> },
               { name: "Zapier", icon: <Sparkles /> },
@@ -464,7 +399,7 @@ const App = () => {
                 <div className="w-12 h-12 bg-blue-50 rounded-xl mb-4 flex items-center justify-center text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
                   {React.cloneElement(tool.icon, { className: "w-6 h-6" })}
                 </div>
-                <span className="text-[13px] font-bold text-slate-800 leading-[1.2] max-w-[80px] text-center">
+                <span className="text-[13px] font-bold text-slate-800 text-center">
                   {tool.name}
                 </span>
               </div>
@@ -473,21 +408,17 @@ const App = () => {
         </div>
       </section>
 
-      {/* CONTACT SECTION */}
-      <section id="contact" className="w-full py-20 bg-[#007bff]">
+      {/* Contact Section */}
+      <section id="contact" className="w-full py-20 bg-blue-600">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to work with a reliable VA?</h2>
           <p className="text-white/80 text-lg mb-10">Let's talk about how I can support your business.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="mailto:imkeithgarces@gmail.com" className="inline-flex items-center justify-center bg-white text-[#007bff] px-8 py-4 rounded-xl text-base font-semibold hover:bg-blue-50 transition-colors">
+            <a href="mailto:imkeithgarces@gmail.com" className="w-full sm:w-auto inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-xl text-base font-semibold hover:bg-blue-50 transition">
               <Mail className="w-5 h-5 mr-2" />
               Send an Inquiry
             </a> 
-            <a href="mailto:imkeithgarces@gmail.com?subject=Hiring%20Inquiry" className="inline-flex items-center justify-center bg-[#0056b3] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#1a314d] transition-colors border-2 border-white/20">
-              <Briefcase className="w-5 h-5 mr-2" />
-              Hire Me 
-            </a> 
-            <a href="https://drive.google.com/drive/folders/1uZ17Dz4ZRX74g4vk6-XvufOFBepVSsFP?usp=sharing" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-white text-[#007bff] px-8 py-4 rounded-xl text-base font-semibold hover:bg-blue-50 transition-colors">
+            <a href="https://drive.google.com/drive/folders/1uZ17Dz4ZRX74g4vk6-XvufOFBepVSsFP?usp=sharing" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-white/10 transition">
               <ExternalLink className="w-5 h-5 mr-2" />
               My Projects 
             </a>
@@ -495,25 +426,24 @@ const App = () => {
         </div>
       </section>
 
-      {/* FOOTER SECTION */}
-      <footer className="w-full bg-[#1a314d] py-10">
+      {/* Footer */}
+      <footer className="w-full bg-slate-900 py-10">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-             <a href="https://www.linkedin.com/in/imkeithgarces/" target="_blank" rel="noopener noreferrer" className="p-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
-                <Linkedin className="w-5 h-5" />
-             </a>
-             <a href="https://x.com/keithgarces_me" target="_blank" rel="noopener noreferrer" className="p-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
-                <Twitter className="w-5 h-5" />
-             </a>
-             <a href="https://www.facebook.com/keithhgarces/" target="_blank" rel="noopener noreferrer" className="p-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
-                <Facebook className="w-5 h-5" />
-             </a>
-             <a href="https://wa.me/639458742271" target="_blank" rel="noopener noreferrer" className="p-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
-                <MessageSquare className="w-5 h-5" />
-             </a>
+          <div className="flex items-center justify-center gap-3 mb-6">
+             {[
+               { icon: <Linkedin />, url: "https://www.linkedin.com/in/imkeithgarces/" },
+               { icon: <Twitter />, url: "https://x.com/keithgarces_me" },
+               { icon: <Facebook />, url: "https://www.facebook.com/keithhgarces/" },
+               { icon: <MessageSquare />, url: "https://wa.me/639458742271" }
+             ].map((social, i) => (
+               <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 text-white rounded-xl hover:bg-blue-600 transition">
+                 {React.cloneElement(social.icon, { className: "w-5 h-5" })}
+               </a>
+             ))}
           </div>
-          <p className="text-white/90 font-medium">Keith Garces</p>
-          <a href="mailto:imkeithgarces@gmail.com" className="text-white/70 hover:text-white transition-colors text-sm">imkeithgarces@gmail.com</a>
+          <p className="text-white font-medium">Keith Garces</p>
+          <p className="text-slate-400 text-sm mt-1">imkeithgarces@gmail.com</p>
+          <p className="text-slate-500 text-xs mt-8">© {new Date().getFullYear()} All Rights Reserved.</p>
         </div>
       </footer>
     </div>
