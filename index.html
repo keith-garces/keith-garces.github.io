@@ -95,6 +95,22 @@
       const generateAssistantResponse = (userMessage) => {
         const message = userMessage.toLowerCase();
         
+        // Check if user is providing an order number (4-10 digits)
+        const orderNumberMatch = userMessage.match(/\b\d{4,10}\b/);
+        if (orderNumberMatch) {
+          const orderNum = orderNumberMatch[0];
+          // If context was cancellation/refund, provide next step
+          if (message.includes('cancel') || message.includes('refund') || message.includes('return')) {
+            return `Got it! Order #${orderNum} - thank you. To process your cancellation/refund, could you please tell me: 1) What's the reason for cancellation/return, and 2) If it's a return, are the items still in original condition? I'll get this sorted for you right away!`;
+          }
+          // If context was tracking, provide tracking response
+          if (message.includes('track') || message.includes('where') || message.includes('status') || message.includes('arrive')) {
+            return `Perfect! Order #${orderNum} - let me check that for you. Your package is being prepared for shipment. I'll keep you updated on the status and expected delivery date. Is there anything else you'd like to know about this order?`;
+          }
+          // Generic order number response
+          return `Got it! I have your order #${orderNum}. How can I help you with this order? Are you looking to track it, make changes, or have a question about it?`;
+        }
+        
         // Shopify Orders & E-commerce
         if (message.includes('shopify order') || message.includes('order management') || message.includes('how do you handle orders')) {
           return "I can help you with your order! 📦 Are you looking to: 1) Track your order status, 2) Make changes to your order, 3) Cancel or modify it, or 4) Have another question? Please provide your order number and let me know what you need. I'll take care of it right away!";
