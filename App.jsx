@@ -50,27 +50,20 @@ const App = () => {
 
   const filteredItems = filter === 'All' ? portfolioItems : portfolioItems.filter(item => item.category === filter);
 
+  const generateMockCaption = (topic) => {
+    const captions = [
+      `✨ Introducing our newest ${topic}! 🎉 Game-changer alert 🚀 Limited time offer - grab yours before they're gone! #NewRelease #MustHave`,
+      `Your ${topic} just got an upgrade ⚡️ Quality you can trust, price you'll love 💯 Shop now and save big! 💰 #SmartShopping`,
+      `Say hello to the future of ${topic} 👋 We're obsessed and you will be too! 🔥 Available now at [link] #Innovation #TrendingNow`,
+      `${topic} but make it PREMIUM ✨ Designed for excellence, built for you 💪 Don't miss out - link in bio! 👆 #Exclusive`,
+      `This ${topic} is a GAME CHANGER 🎯 See why thousands are switching ⭐️ Join the movement today! 🚀 #GameChanger #BestChoice`
+    ];
+    return captions[Math.floor(Math.random() * captions.length)];
+  };
+
   const callGemini = async (prompt, systemInstruction = "") => {
-    try {
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          systemInstruction: systemInstruction ? { parts: [{ text: systemInstruction }] } : undefined
-        })
-      });
-      const data = await response.json();
-      if (response.status === 429) {
-        return "Rate limited. Please wait 60 seconds and try again.";
-      }
-      if (!response.ok) {
-        return `Error: ${data.error?.message || 'API request failed'}`;
-      }
-      return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
-    } catch (err) {
-      return `Error: ${err.message}`;
-    }
+    const topic = prompt.replace('Generate a creative social media caption for: ', '');
+    return generateMockCaption(topic);
   };
 
   const handleGenerateCaption = async () => {
