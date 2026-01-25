@@ -385,7 +385,14 @@
               ),
               React.createElement('p', { className: 'text-sm text-slate-600 mb-6' }, 'Test my ability to create professional copy. Enter a product or topic below.'),
               React.createElement('div', { className: 'flex flex-col md:flex-row gap-3' },
-                React.createElement('input', { type: 'text', value: aiPrompt, onChange: (e) => setAiPrompt(e.target.value), placeholder: 'e.g. New eco-friendly water bottle launch', className: 'flex-1 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 transition' }),
+                React.createElement('input', { 
+                  type: 'text', 
+                  value: aiPrompt, 
+                  onChange: (e) => setAiPrompt(e.target.value), 
+                  onKeyDown: (e) => { if (e.key === 'Enter') handleGenerateCaption(); },
+                  placeholder: 'e.g. New eco-friendly water bottle launch', 
+                  className: 'flex-1 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 transition' 
+                }),
                 React.createElement('button', { onClick: handleGenerateCaption, disabled: isAiLoading, className: 'bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition flex items-center justify-center min-w-[160px]' },
                   isAiLoading ? React.createElement('span', { dangerouslySetInnerHTML: { __html: svgIcon('loader') } }) : 'Generate ✨'
                 )
