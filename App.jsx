@@ -87,21 +87,21 @@ const App = () => {
     
     // Shopify Orders & E-commerce
     if (message.includes('shopify order') || message.includes('order management') || message.includes('how do you handle orders')) {
-      return "Keith expertly manages Shopify orders end-to-end: Creates orders, processes cancellations & swaps seamlessly, handles refunds professionally, tracks shipments, and coordinates with suppliers. He's handled 40+ daily inquiries for e-commerce brands. Keith ensures zero customer frustration through quick resolution and clear communication.";
+      return "I can help you with your order! 📦 Are you looking to: 1) Track your order status, 2) Make changes to your order, 3) Cancel or modify it, or 4) Have another question? Please provide your order number and let me know what you need. I'll take care of it right away!";
     }
     if (message.includes('customer inquir') || message.includes('handle inquiry') || message.includes('customer question') || message.includes('how do you manage') || message.includes('handle customers')) {
-      return "Keith is your dedicated customer support specialist. When customers reach out with inquiries: Keith responds within hours, not days. He listens carefully to understand the actual problem, provides clear solutions, and keeps customers informed every step of the way. Keith manages 40+ daily inquiries professionally via email and chat (Gorgias/Zendesk), resolves issues completely so they don't resurface, and treats every customer like they matter. With 5+ years experience supporting 3,000+ customers, Keith's approach turns frustrated customers into loyal advocates through genuine care and efficiency.";
+      return "Hi there! 👋 I'm here to help with any questions or concerns you have. Please tell me: What's your issue or question about? Include your order number if it's related to a specific order. I'll listen carefully and get you the solution you need. What can I assist you with?";
     }
     if (message.includes('refund') || message.includes('return') || message.includes('cancellation') || message.includes('cancel order')) {
-      return "Keith handles refunds and cancellations smoothly: He processes refund requests promptly, manages return logistics, handles cancellations professionally, and resolves disputes fairly. His psychology background helps him handle frustrated customers with empathy, turning negative situations into positive brand experiences.";
+      return "I can help you with that! 😊 To process your cancellation/refund, I'll need: 1) Your order number, 2) The reason for cancellation/return, and 3) If it's a return, do you still have the items in original condition? Once you provide these details, I'll get this resolved quickly for you. What's your order number?";
     }
     if (message.includes('inventory') || message.includes('stock') || message.includes('tracking')) {
-      return "Keith manages inventory tracking and shipment coordination efficiently. He monitors stock levels, updates product listings, coordinates with suppliers, tracks shipments in real-time, and communicates proactively with customers. Zero missed shipments, always on top of logistics!";
+      return "I can help you track your shipment! 📋 To get you the most accurate information, please provide your order number. I'll check the current status and give you an update on when your package will arrive. What's your order number?";
     }
     
     // Services & Expertise
     if (message.includes('customer support') || message.includes('support')) {
-      return "Keith specializes in high-volume email and chat support, handling 40+ daily inquiries with professionalism. He uses tools like Gorgias and Zendesk for seamless customer interactions. With 5+ years experience and 3,000+ customers supported, he's your go-to for reliable customer care.";
+      return "Welcome! 👋 I'm here to support you. What can I help you with today? Whether it's about an order, product question, issue, or anything else - I'm ready to assist. Tell me what's on your mind!";
     }
     if (message.includes('shopify') && !message.includes('order')) {
       return "Keith has extensive Shopify expertise: order management, product listing updates, inventory tracking, store optimization, and customer support. He's worked with automotive and fashion brands, managing high-volume operations smoothly. He's fluent in Shopify workflows!";
