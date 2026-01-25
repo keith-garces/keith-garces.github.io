@@ -215,7 +215,7 @@
       return React.createElement('div', { className: 'min-h-screen bg-slate-50 font-sans text-slate-900 scroll-smooth' },
         // Navigation
         React.createElement('nav', { className: 'flex items-center justify-between px-6 py-4 bg-white border-b sticky top-0 z-50' },
-          React.createElement('div', { className: 'text-blue-600 font-bold text-xl' }, 'Keith Garces'),
+          React.createElement('a', { href: '#header', className: 'text-blue-600 font-bold text-xl hover:text-blue-700 transition-colors' }, 'Keith Garces'),
           React.createElement('div', { className: 'hidden md:flex space-x-8 text-sm font-medium' },
             React.createElement('a', { href: '#services', className: 'text-slate-600 hover:text-blue-600 transition-colors' }, 'Services'),
             React.createElement('a', { href: '#experience', className: 'text-slate-600 hover:text-blue-600 transition-colors' }, 'Experience'),
@@ -227,7 +227,7 @@
         ),
 
         // Hero Section
-        React.createElement('header', { className: 'w-full bg-gradient-to-b from-blue-50 to-white py-20 md:py-28 px-6' },
+        React.createElement('header', { id: 'header', className: 'w-full bg-gradient-to-b from-blue-50 to-white py-20 md:py-28 px-6' },
           React.createElement('div', { className: 'max-w-4xl mx-auto text-center' },
             React.createElement('h1', { id: 'headline', className: 'text-3xl md:text-5xl font-bold text-slate-800 leading-tight mb-6', style: { fontSize: '40px' } }, 'Reliable E-commerce & Customer Support Virtual Assistant'),
             React.createElement('p', { className: 'text-slate-500 text-lg mb-10 max-w-2xl mx-auto' }, 'Helping e-commerce businesses manage customer support and daily operations with precision and modern AI tools.'),
