@@ -247,14 +247,15 @@
         ),
 
         // Services Section
-        React.createElement('section', { id: 'services', className: 'bg-white py-16 sm:py-20 px-4 sm:px-6 w-full' },
+        React.createElement('section', { id: 'services', className: 'bg-white py-20 px-6' },
           React.createElement('div', { className: 'max-w-7xl mx-auto' },
-            React.createElement('div', { className: 'w-full' },
-              React.createElement('div', { className: 'mb-10 sm:mb-12 text-center sm:text-left' },
-                React.createElement('h2', { className: 'text-2xl sm:text-3xl font-bold mb-2 sm:mb-4' }, 'Services'),
-                React.createElement('p', { className: 'text-sm sm:text-base text-slate-500' }, 'Professional virtual assistance tailored to e-commerce and business operations.')
-              ),
-              React.createElement('div', { className: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6' },
+            React.createElement('div', { className: 'grid grid-cols-1 lg:grid-cols-4 gap-12' },
+              React.createElement('div', { className: 'lg:col-span-3' },
+                React.createElement('div', { className: 'mb-12 text-center lg:text-left' },
+                  React.createElement('h2', { className: 'text-3xl font-bold mb-4' }, 'Services'),
+                  React.createElement('p', { className: 'text-slate-500' }, 'Professional virtual assistance tailored to e-commerce and business operations.')
+                ),
+                React.createElement('div', { className: 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6' },
                   [
                     { title: 'Customer Support', icon: 'userPlus', list: ['Email & chat support (Gorgias, Zendesk)', 'Inquiry resolution and troubleshooting', 'Customer relationship management', 'Handling high-volume inquiries professionally'] },
                     { title: 'E-commerce VA Support', icon: 'shoppingCart', list: ['Order creation, cancellations, swaps, refunds', 'Tracking shipments & supplier coordination', 'Product listing updates', 'Inventory tracking'] },
@@ -277,7 +278,7 @@
                 )
               ),
               // AI Assistant Chat Simulation - Moved below services
-              React.createElement('div', { className: 'bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-white flex flex-col h-96 sm:h-[500px] shadow-2xl relative overflow-hidden w-full mt-6 sm:mt-12' },
+              React.createElement('div', { className: 'bg-slate-900 rounded-3xl p-6 text-white flex flex-col h-[500px] shadow-2xl relative overflow-hidden mt-12 col-span-full' },
                 React.createElement('div', { className: 'absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500' }),
                 React.createElement('div', { className: 'flex items-center space-x-3 mb-6' },
                   React.createElement('div', { className: 'w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center', dangerouslySetInnerHTML: { __html: svgIcon('sparkles') } }),
