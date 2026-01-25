@@ -89,10 +89,10 @@ const App = () => {
     if (message.includes('shopify order') || message.includes('order management') || message.includes('how do you handle orders')) {
       return "Keith expertly manages Shopify orders end-to-end: Creates orders, processes cancellations & swaps seamlessly, handles refunds professionally, tracks shipments, and coordinates with suppliers. He's handled 40+ daily inquiries for e-commerce brands. Keith ensures zero customer frustration through quick resolution and clear communication.";
     }
-    if (message.includes('customer inquir') || message.includes('handle inquiry') || message.includes('customer question')) {
+    if (message.includes('customer inquir') || message.includes('handle inquiry') || message.includes('customer question') || message.includes('how do you manage') || message.includes('handle customers')) {
       return "Keith manages customer inquiries with excellence: He handles 40+ daily emails & chats via Gorgias/Zendesk, resolves issues fast, manages expectations professionally, and maintains customer relationships. With 5+ years experience and 3,000+ customers supported, he turns inquiries into loyalty through empathy and efficiency.";
     }
-    if (message.includes('refund') || message.includes('return') || message.includes('cancellation')) {
+    if (message.includes('refund') || message.includes('return') || message.includes('cancellation') || message.includes('cancel order')) {
       return "Keith handles refunds and cancellations smoothly: He processes refund requests promptly, manages return logistics, handles cancellations professionally, and resolves disputes fairly. His psychology background helps him handle frustrated customers with empathy, turning negative situations into positive brand experiences.";
     }
     if (message.includes('inventory') || message.includes('stock') || message.includes('tracking')) {
@@ -135,6 +135,11 @@ const App = () => {
     }
     if (message.includes('email') || message.includes('contact') || message.includes('reach')) {
       return "You can reach Keith at imkeithgarces@gmail.com or connect via LinkedIn at linkedin.com/in/imkeithgarces. WhatsApp also available at +63 945-874-2271. He responds quickly!";
+    }
+    
+    // Catch-all for general questions
+    if (message.includes('what') || message.includes('how') || message.includes('can you') || message.includes('do you')) {
+      return "Keith is a skilled Virtual Assistant specializing in e-commerce support and customer service. He expertly handles Shopify orders, manages 40+ daily customer inquiries via Gorgias/Zendesk, processes refunds smoothly, and coordinates shipments. Ask about his Shopify expertise, customer support skills, experience, or how to hire him!";
     }
     
     // Default response
