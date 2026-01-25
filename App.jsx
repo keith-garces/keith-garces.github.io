@@ -220,8 +220,8 @@ const App = () => {
 
       {/* Services Section */}
       <section id="services" className="bg-white py-20 px-6 w-full flex justify-center">
-        <div className="w-full max-w-7xl">
-          <div className="mb-12 text-center">
+        <div className="w-full max-w-7xl flex flex-col items-center">
+          <div className="mb-12 text-center w-full">
             <h2 className="text-3xl font-bold mb-4">Services</h2>
             <p className="text-slate-500">Professional virtual assistance tailored to e-commerce and business operations.</p>
           </div>
