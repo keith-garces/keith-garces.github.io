@@ -219,9 +219,9 @@ const App = () => {
       </header>
 
       {/* Services Section */}
-      <section id="services" className="bg-white py-20 px-6 w-full">
-        <div className="w-full">
-          <div className="mb-12 text-center lg:text-left">
+      <section id="services" className="bg-white py-20 px-6 w-full flex justify-center">
+        <div className="w-full max-w-7xl">
+          <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold mb-4">Services</h2>
             <p className="text-slate-500">Professional virtual assistance tailored to e-commerce and business operations.</p>
           </div>
