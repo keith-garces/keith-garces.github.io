@@ -221,13 +221,12 @@ const App = () => {
       {/* Services Section */}
       <section id="services" className="bg-white py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-            <div className="lg:col-span-3">
-              <div className="mb-12 text-center lg:text-left">
-                <h2 className="text-3xl font-bold mb-4">Services</h2>
-                <p className="text-slate-500">Professional virtual assistance tailored to e-commerce and business operations.</p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="w-full">
+            <div className="mb-12 text-center lg:text-left">
+              <h2 className="text-3xl font-bold mb-4">Services</h2>
+              <p className="text-slate-500">Professional virtual assistance tailored to e-commerce and business operations.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
                 {[
                   { 
                     title: "Customer Support", 
@@ -269,7 +268,7 @@ const App = () => {
             </div>
 
             {/* AI Assistant Chat Simulation */}
-            <div className="bg-slate-900 rounded-3xl p-6 text-white flex flex-col h-[500px] shadow-2xl relative overflow-hidden lg:mt-24">
+            <div className="bg-slate-900 rounded-3xl p-6 text-white flex flex-col h-[500px] shadow-2xl relative overflow-hidden lg:mt-24 w-full">
                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
                <div className="flex items-center space-x-3 mb-6">
                   <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
