@@ -51,26 +51,25 @@ const App = () => {
   const filteredItems = filter === 'All' ? portfolioItems : portfolioItems.filter(item => item.category === filter);
 
   const callGemini = async (prompt, systemInstruction = "") => {
-    let retries = 0;
-    const maxRetries = 1;
-    while (retries <= maxRetries) {
-      try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            systemInstruction: systemInstruction ? { parts: [{ text: systemInstruction }] } : undefined
-          })
-        });
-        const data = await response.json();
-        return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
-      } catch (err) {
-        if (retries === maxRetries) throw err;
-        const delay = 3000 + (Math.pow(2, retries) * 1000);
-        await new Promise(res => setTimeout(res, delay));
-        retries++;
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          systemInstruction: systemInstruction ? { parts: [{ text: systemInstruction }] } : undefined
+        })
+      });
+      const data = await response.json();
+      if (response.status === 429) {
+        return "Rate limited. Please wait 60 seconds and try again.";
       }
+      if (!response.ok) {
+        return `Error: ${data.error?.message || 'API request failed'}`;
+      }
+      return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
+    } catch (err) {
+      return `Error: ${err.message}`;
     }
   };
 
