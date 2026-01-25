@@ -92,21 +92,59 @@
         }
       };
 
+      const generateAssistantResponse = (userMessage) => {
+        const message = userMessage.toLowerCase();
+        
+        // Services & Expertise
+        if (message.includes('customer support') || message.includes('support')) {
+          return "Keith specializes in high-volume email and chat support, handling 40+ daily inquiries with professionalism. He uses tools like Gorgias and Zendesk for seamless customer interactions.";
+        }
+        if (message.includes('shopify') || message.includes('order') || message.includes('refund') || message.includes('swap')) {
+          return "Keith has extensive e-commerce experience! He handles Shopify order management, cancellations, swaps, refunds, and inventory tracking. Perfect for automotive and fashion brands.";
+        }
+        if (message.includes('gorgias') || message.includes('zendesk') || message.includes('hubspot')) {
+          return "Keith is proficient with all major support platforms - Gorgias, Zendesk, HubSpot, and more. He can streamline your customer communication workflows immediately.";
+        }
+        if (message.includes('data') || message.includes('admin') || message.includes('sheet') || message.includes('spreadsheet')) {
+          return "Keith handles data entry, CRM updates, Google Sheets management, and documentation. He's organized, detail-oriented, and follows processes precisely.";
+        }
+        if (message.includes('technical') || message.includes('integration') || message.includes('automation')) {
+          return "Keith has technical support experience including troubleshooting, system setup, API integration, and Zapier automation. He bridges business and tech seamlessly.";
+        }
+        
+        // Experience & Background
+        if (message.includes('experience') || message.includes('background') || message.includes('years')) {
+          return "Keith has 5+ years in customer support across telco, retail, insurance, and automotive industries. He's supported 3,000+ customers and managed high-volume environments.";
+        }
+        if (message.includes('why hire') || message.includes('qualities') || message.includes('skilled')) {
+          return "Keith brings: Strong communication, detail-oriented mindset, calm under pressure, independent work ethic, and a psychology background supporting empathy. He's reliable and efficient.";
+        }
+        
+        // Tools & Platforms
+        if (message.includes('tools') || message.includes('software') || message.includes('platform')) {
+          return "Keith masters: Shopify, Gorgias, Zendesk, HubSpot, Google Workspace, Notion, Canva, Zapier, MS Office, and ChatGPT. He learns new tools quickly.";
+        }
+        
+        // Hiring & Contact
+        if (message.includes('hire') || message.includes('work with') || message.includes('available')) {
+          return "Ready to work together? Check out Keith's portfolio or email imkeithgarces@gmail.com. He's available for full-time, part-time, or project-based work.";
+        }
+        if (message.includes('email') || message.includes('contact') || message.includes('reach')) {
+          return "You can reach Keith at imkeithgarces@gmail.com or connect via LinkedIn at linkedin.com/in/imkeithgarces. He responds quickly!";
+        }
+        
+        // Default response
+        return "Keith is a skilled Virtual Assistant specializing in e-commerce support and customer service. Ask about his experience with Shopify, customer support tools, data management, or available services!";
+      };
+
       const handleSupportChat = async (e) => {
         e.preventDefault();
         if (!userMessage.trim()) return;
         const newMessage = { role: 'user', text: userMessage };
         setSupportChat([...supportChat, newMessage]);
         setUserMessage('');
-        try {
-          const aiResponse = await callGemini(
-            userMessage,
-            "You are simulating Keith Garces' AI Assistant. Respond as a professional, friendly, and efficient Customer Support VA specialized in Shopify and Gorgias. Be concise."
-          );
-          setSupportChat(prev => [...prev, { role: 'ai', text: aiResponse }]);
-        } catch (error) {
-          setSupportChat(prev => [...prev, { role: 'ai', text: "I'm having trouble connecting right now, but Keith would normally respond instantly!" }]);
-        }
+        const aiResponse = generateAssistantResponse(userMessage);
+        setSupportChat(prev => [...prev, { role: 'ai', text: aiResponse }]);
       };
 
       const svgIcon = (name) => {
