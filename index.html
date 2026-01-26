@@ -510,7 +510,7 @@
                 { name: 'HubSpot', icon: 'hubspot' },
                 { name: 'Google Workspace', icon: 'google' },
                 { name: 'Notion', icon: 'notion' },
-                { name: 'Canva', icon: 'canva' },
+                { name: 'Canva', iconImage: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg' },
                 { name: 'Zapier', icon: 'zapier' },
                 { name: 'MS Office', icon: 'msoffice' },
                 { name: 'ChatGPT', icon: 'chatgpt' },
@@ -520,7 +520,11 @@
                 { name: 'CapCut', icon: 'capcut' }
               ].map((tool, i) =>
                 React.createElement('div', { key: i, className: 'bg-white p-6 rounded-2xl flex flex-col items-center border border-slate-100 hover:border-blue-200 shadow-sm transition group' },
-                  React.createElement('div', { className: 'w-12 h-12 bg-blue-50 rounded-xl mb-4 flex items-center justify-center text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white', dangerouslySetInnerHTML: { __html: svgIcon(tool.icon) } }),
+                  tool.iconImage 
+                    ? React.createElement('div', { className: 'w-12 h-12 rounded-xl mb-4 flex items-center justify-center overflow-hidden' },
+                        React.createElement('img', { src: tool.iconImage, alt: tool.name, className: 'w-full h-full object-contain' })
+                      )
+                    : React.createElement('div', { className: 'w-12 h-12 bg-blue-50 rounded-xl mb-4 flex items-center justify-center text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white', dangerouslySetInnerHTML: { __html: svgIcon(tool.icon) } }),
                   React.createElement('span', { className: 'text-[13px] font-bold text-slate-800 leading-[1.2] max-w-[80px] text-center' }, tool.name)
                 )
               )
