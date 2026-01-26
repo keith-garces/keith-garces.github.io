@@ -416,9 +416,9 @@ const App = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredItems.map((item) => (
               <div key={item.id} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-slate-100">
-                <div className={`h-40 ${item.color} flex items-center justify-center p-8 transition-transform group-hover:scale-105`}>
+                <div className={`h-40 ${item.color} flex items-center justify-center ${item.image ? '' : 'p-8'} transition-transform group-hover:scale-105 overflow-hidden`}>
                    {item.image ? (
-                     <img src={item.image} alt={item.title} className="w-full h-full object-cover rounded-lg" />
+                     <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                    ) : (
                      <div className="w-full h-full border-2 border-dashed border-blue-200 rounded-lg flex flex-col items-center justify-center text-blue-300">
                         <Layout className="w-8 h-8 mb-2" />
