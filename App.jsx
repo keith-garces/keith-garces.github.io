@@ -363,7 +363,7 @@ const App = () => {
       <section id="portfolio" className="w-full py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">My portfolio</h2>
+            <h2 className="text-3xl font-bold mb-4">My Portfolio</h2>
             <p className="text-slate-500">Check out my work or try my AI content brainstorming tool below!</p>
           </div>
 
