@@ -46,6 +46,7 @@ const App = () => {
     { id: 4, category: 'Instagram', title: 'Lifestyle Brand Feed', description: 'Grid planning and aesthetic curation', color: 'bg-blue-100', image: 'lifestyle feed/2.png', gallery: ['lifestyle feed/1.png'] },
     { id: 5, category: 'LinkedIn', title: 'Infographics', description: 'Infographics for certain target market.', color: 'bg-blue-50', image: 'infographics/Tips to save money.png', gallery: ['infographics/Tips to save money.png', 'infographics/Crypto Infographics.png'] },
     { id: 6, category: 'Ads', title: 'Customer Success Stories', description: 'Testimonial carousels for social proof.', color: 'bg-blue-100', image: 'Customer Sucess Stories/Feedback.png', gallery: ['Customer Sucess Stories/Feedback.png', 'Customer Sucess Stories/Feedback2.png', 'Customer Sucess Stories/Feedback3.png'] },
+    { id: 7, category: 'LinkedIn', title: 'Calendar Management', description: 'Schedule and calendar coordination services.', color: 'bg-blue-50' },
   ];
 
   const filteredItems = filter === 'All' ? portfolioItems : portfolioItems.filter(item => item.category === filter);
