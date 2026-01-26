@@ -29,8 +29,6 @@ import {
   BarChart3
 } from 'lucide-react';
 
-const apiKey = "AIzaSyCc90MRgdkSEQE-gPiBPI0VMBATbNSRvzY"; // Provided by environment
-
 const App = () => {
   const [filter, setFilter] = useState('All');
   const [aiPrompt, setAiPrompt] = useState('');
