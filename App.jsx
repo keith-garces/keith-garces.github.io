@@ -46,7 +46,7 @@ const App = () => {
     { id: 6, category: 'Ads', title: 'Customer Success Stories', description: 'Testimonial carousels for social proof.', color: 'bg-blue-100', image: 'Customer Sucess Stories/Feedback.png', gallery: ['Customer Sucess Stories/Feedback.png', 'Customer Sucess Stories/Feedback2.png', 'Customer Sucess Stories/Feedback3.png'] },
     { id: 7, category: 'LinkedIn', title: 'Calendar Management', description: 'Schedule and calendar coordination services.', color: 'bg-blue-50' },
     { id: 8, category: 'LinkedIn', title: 'Data Entry', description: 'Accurate and efficient data management services.', color: 'bg-blue-100', image: 'Data Entry/Simple Employee Database.png', gallery: ['Data Entry/Simple Employee Database.png', 'Data Entry/HR File.png', 'Data Entry/leadgeneration.png', 'Data Entry/Linegraph.png', 'Data Entry/Ordersalesdata.png', 'Data Entry/Topgrossingmoviesofalltime.png', 'Data Entry/Typingtest.png'] },
-    { id: 9, category: 'LinkedIn', title: 'Customer Service Works', description: 'Professional customer support and service solutions.', color: 'bg-blue-50' },
+    { id: 9, category: 'LinkedIn', title: 'Customer Service Works', description: 'Professional customer support and service solutions.', color: 'bg-blue-50', image: 'Customer Service Works/Customer Service Spiels.png', gallery: ['Customer Service Works/Customer Service Spiels.png', 'Customer Service Works/Customer Service Spiels 2.png', 'Customer Service Works/Customer Service Spiels 3.png', 'Customer Service Works/Customer Email1.png', 'Customer Service Works/Customer Email2.png', 'Customer Service Works/Customer Email3.png', 'Customer Service Works/Receipt Acknowledgement.png'] },
   ];
 
   const filteredItems = filter === 'All' ? portfolioItems : portfolioItems.filter(item => item.category === filter);
@@ -417,10 +417,14 @@ const App = () => {
             {filteredItems.map((item) => (
               <div key={item.id} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-slate-100">
                 <div className={`h-40 ${item.color} flex items-center justify-center p-8 transition-transform group-hover:scale-105`}>
-                   <div className="w-full h-full border-2 border-dashed border-blue-200 rounded-lg flex flex-col items-center justify-center text-blue-300">
-                      <Layout className="w-8 h-8 mb-2" />
-                      <span className="text-[10px] font-bold uppercase tracking-widest">{item.category}</span>
-                   </div>
+                   {item.image ? (
+                     <img src={item.image} alt={item.title} className="w-full h-full object-cover rounded-lg" />
+                   ) : (
+                     <div className="w-full h-full border-2 border-dashed border-blue-200 rounded-lg flex flex-col items-center justify-center text-blue-300">
+                        <Layout className="w-8 h-8 mb-2" />
+                        <span className="text-[10px] font-bold uppercase tracking-widest">{item.category}</span>
+                     </div>
+                   )}
                 </div>
                 <div className="p-6">
                   <h3 className="font-bold text-lg mb-2">{item.title}</h3>
