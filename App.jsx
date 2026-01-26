@@ -43,7 +43,7 @@ const App = () => {
     { id: 1, category: 'Instagram', title: 'Product Launch Graphics', description: 'Social media strategy for an e-commerce brand launch.', color: 'bg-blue-50' },
     { id: 2, category: 'Facebook', title: 'Community Engagement', description: 'Curated posts for a tech support community group.', color: 'bg-blue-100' },
     { id: 3, category: 'Ads', title: 'Shopify Sales Campaign', description: 'High-converting ad copy and creative designs.', color: 'bg-blue-50' },
-    { id: 4, category: 'Instagram', title: 'Lifestyle Brand Feed', description: 'Grid planning and aesthetic curation for fashion VA.', color: 'bg-blue-100' },
+    { id: 4, category: 'Instagram', title: 'Lifestyle Brand Feed', description: 'Grid planning and aesthetic curation', color: 'bg-blue-100', image: 'lifestyle feed/2.png', gallery: ['lifestyle feed/1.png'] },
     { id: 5, category: 'LinkedIn', title: 'B2B Outreach Assets', description: 'Professional infographics for lead generation.', color: 'bg-blue-50' },
     { id: 6, category: 'Ads', title: 'Customer Success Stories', description: 'Testimonial carousels for social proof.', color: 'bg-blue-100' },
   ];
