@@ -523,7 +523,7 @@ const App = () => {
               { name: "HubSpot", icon: <Users /> },
               { name: "Google Workspace", icon: <Zap /> },
               { name: "Notion", icon: <FileText /> },
-              { name: "Canva", icon: <Layout /> },
+              { name: "Canva", icon: <MousePointer2 /> },
               { name: "Zapier", icon: <Sparkles /> },
               { name: "MS Office", icon: <Briefcase /> },
               { name: "ChatGPT", icon: <MessageSquare /> }
